@@ -1,9 +1,11 @@
 import Header from "./components/Header"
+import Listing from "./components/Listing"
 
 function App() {
   return (
     <>
-      <Header></Header>
+      <Header />
+      <Listing />
     </>
   )
 }

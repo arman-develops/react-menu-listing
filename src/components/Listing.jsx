@@ -1,37 +1,45 @@
+import React from "react";
+import { listingItems } from "../data/listing-data";
+import { CiStar } from "react-icons/ci";
 
 function Listing() {
-    <>
+    return (
         <div>
-            {/* map listing items here */}
+            {listingItems.map(({ discount, rating, img, listingName, price, description }, index) => (
+                <ListingItem
+                    key={index}
+                    img={img}
+                    discount={discount}
+                    rating={rating}
+                    listingName={listingName}
+                    price={price}
+                    description={description}
+                />
+            ))}
         </div>
-    </>
+    );
 }
 
-function ListingItem() {
-    <>
+function ListingItem({ img, discount, rating, listingName, description, price }) {
+    return (
         <div>
             <div>
-                <img src="" alt="" />
-                <div>
-                    {/* discount here */}
-                </div>
-                <div>
-                    {/* rating */}
-                </div>
+                <img src={img} alt={listingName} />
+                <div>{discount}%</div>
+                {rating && (
+                    <div>
+                        <CiStar />
+                        {rating}
+                    </div>
+                )}
             </div>
             <div>
-                <h6>
-                    {/* name here */}
-                </h6>
-                <p>
-                    {/* description */}
-                </p>
-                <p>
-                    {/* price */}
-                </p>
+                <h6>{listingName}</h6>
+                <p>{description}</p>
+                <p>${price.toFixed(2)}</p>
             </div>
-        </div>  
-    </>
+        </div>
+    );
 }
 
-export default Listing
+export default Listing;
