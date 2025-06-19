@@ -8,7 +8,8 @@ import { IoIceCreamOutline } from "react-icons/io5";
 const navItems = [
     {
         name: "All",
-        icon: <IoFastFoodOutline />
+        icon: <IoFastFoodOutline />,
+        active: true
     },
     {
         name: "Drinks",
@@ -34,25 +35,33 @@ const navItems = [
 
 function Header() {
     return (
-        <>
-            <div>
-                <div>
-                    <nav>
-                        <ul>
-                            {navItems.map(({name, icon}, index) => (
-                                <li key={index}>
-                                    {icon}
-                                    {name}
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-                </div>
-                <div>
-                    <a href="#">View All</a>
-                </div>
-            </div> 
-        </>
+        <div className="header">
+            <div className="nav-container">
+                <nav>
+                    <ul className="nav-items">
+                        {navItems.map(({name, icon, active}, index) => (
+                            <li key={index}>
+                                {
+                                active ? 
+                                    <a href="#" className="active">
+                                        {icon}
+                                        {name}
+                                    </a>
+                                    :
+                                    <a href="#">
+                                        {icon}
+                                        {name}
+                                    </a>
+                                }
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            </div>
+            <div className="nav-link">
+                <a href="#">View All</a>
+            </div>
+        </div>
     )
 }
 

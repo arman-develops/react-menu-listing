@@ -4,8 +4,10 @@ import Listing from "./components/Listing"
 function App() {
   return (
     <>
-      <Header />
-      <Listing />
+      <div className="body">
+        <Header />
+        <Listing />
+      </div>
     </>
   )
 }
