@@ -1,10 +1,9 @@
-import React from "react";
 import { listingItems } from "../data/listing-data";
-import { CiStar } from "react-icons/ci";
+import { FaStar } from "react-icons/fa";
 
 function Listing() {
     return (
-        <div>
+        <div className="listing-area">
             {listingItems.map(({ discount, rating, img, listingName, price, description }, index) => (
                 <ListingItem
                     key={index}
@@ -22,21 +21,21 @@ function Listing() {
 
 function ListingItem({ img, discount, rating, listingName, description, price }) {
     return (
-        <div>
+        <div className="listing-card">
             <div>
-                <img src={img} alt={listingName} />
-                <div>{discount}%</div>
+                <img src={img} alt={listingName} className="img-fluid" />
+                <div className="discount">{discount}%</div>
                 {rating && (
-                    <div>
-                        <CiStar />
-                        {rating}
+                    <div className="rating">
+                        <FaStar className="star" />
+                        {rating.toFixed(2)}
                     </div>
                 )}
             </div>
-            <div>
-                <h6>{listingName}</h6>
+            <div className="listing-details">
+                <h3>{listingName}</h3>
                 <p>{description}</p>
-                <p>${price.toFixed(2)}</p>
+                <p className="price">${price.toFixed(2)}</p>
             </div>
         </div>
     );

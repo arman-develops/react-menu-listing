@@ -18,7 +18,7 @@ export const listingItems = [
     {
         discount: 20,
         rating: 4.00,
-        img: "/pinapple-pizza.jpg",
+        img: "/pineapple-pizza.jpg",
         listingName: "Pineapple Pizza",
         description: "A sweet and savory fusion of tropical pineapple chunks and cheesy goodness on a crispy crust.",
         price: 25.50
